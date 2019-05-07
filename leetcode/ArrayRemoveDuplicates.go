@@ -1,12 +1,16 @@
 package leetcode
 
 // 给定一个排好序的数组，去掉其中重复出现的元素，使得每个元素在数组中仅出现一次，返回新数组的长度
-func ArrayRemoveDuplicates(nums []int) int{
-	i := len(nums)
-	for j := 0; j < i; j++ {
-		if nums[j] == nums[j+1] {
-			i--
+func ArrayRemoveDuplicates(nums []int) int {
+	for i := 0; i < len(nums)-1; i++ {
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j] == nums[i] {
+				nums = append(nums[:i+1], nums[j+1:]...)
+				j = i
+			}
+
 		}
 	}
-	return i
+
+	return len(nums)
 }
