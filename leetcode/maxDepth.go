@@ -23,7 +23,7 @@ func maxDepth(root *TreeNode) int {
 		}
 		p = q
 		q = q[:0]
-		i += 1
+		i++
 	}
 	return i
 }
